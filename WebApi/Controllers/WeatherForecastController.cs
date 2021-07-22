@@ -42,9 +42,22 @@ namespace WebApi.Controllers
     public class GreetingController : ControllerBase
     {
         [HttpGet("greeting")]
-        public string Get()
+        public string GetString()
         {
             return "I hope this greeting message is being read!";
+        }
+
+        [HttpGet("all")]
+        public List<string> GetList()
+        {
+            var ourList = new List<string>();
+            ourList.Add("this");
+            ourList.Add("is");
+            ourList.Add("a");
+            ourList.Add("list");
+            ourList.Add(":O");
+
+            return ourList;
         }
     }
 }
