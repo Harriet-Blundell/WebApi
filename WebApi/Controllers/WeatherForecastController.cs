@@ -36,4 +36,15 @@ namespace WebApi.Controllers
             .ToArray();
         }
     }
+
+    [ApiController]
+    [Route("api")]
+    public class GreetingController : ControllerBase
+    {
+        [HttpGet("greeting")]
+        public string Get()
+        {
+            return "I hope this greeting message is being read!";
+        }
+    }
 }
