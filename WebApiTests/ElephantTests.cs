@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace WebApiTests
 {
-    public class UnitTest1
+    public class ElephantTests
     {
         [Fact]
         public void GetGreetingReturnsNonEmptyString()
