@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Text.Json;
 
 namespace WebApi.Controllers
 {
@@ -48,16 +49,11 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("all")]
-        public List<string> GetList()
+        public List<Elephant> GetElephantList()
         {
-            var ourList = new List<string>();
-            ourList.Add("this");
-            ourList.Add("is");
-            ourList.Add("a");
-            ourList.Add("list");
-            ourList.Add(":O");
-
-            return ourList;
+            var elephantFilePath = System.IO.File.ReadAllText(@"elephants.json");
+            var employeeData = JsonSerializer.Deserialize<List<Elephant>>(elephantFilePath);
+            return employeeData;
         }
     }
 }
